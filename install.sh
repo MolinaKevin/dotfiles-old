@@ -4,7 +4,7 @@
 sudo pacman -Sy
 
 # Base
-sudo pacman -S vim stow git curl xorg-xinit xorg-server xorg-apps base-devel --noconfirm --needed
+sudo pacman -S vim git curl xorg-xinit xorg-server xorg-apps base-devel --noconfirm --needed
 
 # Usefull packages
 sudo pacman -S paru --noconfirm --needed
@@ -96,7 +96,4 @@ chsh -s /usr/bin/fish
 
 # Fonts 
 paru -S nerd-fonts-complete --noconfirm --needed
-
-# Copy Dotfiles
-sudo stow .
 
