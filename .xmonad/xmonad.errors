@@ -1,0 +1,25 @@
+$ ghc --make xmonad.hs -i -ilib -fforce-recomp -main-is main -dynamic -v0 -outputdir /home/kevin/.xmonad/build-x86_64-linux -o /home/kevin/.xmonad/xmonad-x86_64-linux
+
+xmonad.hs:183:40: warning: [-Wdeprecations]
+    In the use of ‘defaultConfig’
+    (imported from XMonad, but defined in XMonad.Config):
+    Deprecated: "Use def (from Data.Default, and re-exported by XMonad and XMonad.Config) instead."
+    |
+183 | myConfig toggleFadeSet xmproc   = ewmh defaultConfig
+    |                                        ^^^^^^^^^^^^^
+
+xmonad.hs:185:35: warning: [-Wdeprecations]
+    In the use of ‘docksEventHook’
+    (imported from XMonad.Hooks.ManageDocks):
+    Deprecated: "Use docks instead."
+    |
+185 |     , handleEventHook           = docksEventHook 
+    |                                   ^^^^^^^^^^^^^^
+
+xmonad.hs:336:34: warning: [-Wdeprecations]
+    In the use of ‘namedScratchpadFilterOutWorkspacePP’
+    (imported from XMonad.Util.NamedScratchpad):
+    Deprecated: "Use XMonad.Hooks.StatusBar.PP.filterOutWsPP [scratchpadWorkspaceTag] instead"
+    |
+336 | myLogHook x = dynamicLogWithPP $ namedScratchpadFilterOutWorkspacePP $ xmobarPP
+    |                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
