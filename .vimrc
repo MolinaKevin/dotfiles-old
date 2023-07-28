@@ -18,6 +18,10 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 Plug 'preservim/nerdcommenter'
 
+" Fuzzy finder 
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
 call plug#end()
 
 
@@ -222,3 +226,38 @@ set relativenumber
 
 	" Enable NERDCommenterToggle to check all selected lines is commented or not 
 	let g:NERDToggleCheckAllLines = 1
+
+" Fuzzy finder
+    " This is the default option:
+    "   - Preview window on the right with 50% width
+    "   - CTRL-/ will toggle preview window.
+    " - Note that this array is passed as arguments to fzf#vim#with_preview function.
+    " - To learn more about preview window options, see `--preview-window` section of `man fzf`.
+    let g:fzf_preview_window = ['right,50%', 'ctrl-/']
+
+    " Preview window is hidden by default. You can toggle it with ctrl-/.
+    " It will show on the right with 50% width, but if the width is smaller
+    " than 70 columns, it will show above the candidate list
+    let g:fzf_preview_window = ['hidden,right,50%,<70(up,40%)', 'ctrl-/']
+
+    " Empty value to disable preview window altogether
+    let g:fzf_preview_window = []
+
+    " fzf.vim needs bash to display the preview window.
+    " On Windows, fzf.vim will first see if bash is in $PATH, then if
+    " Git bash (C:\Program Files\Git\bin\bash.exe) is available.
+    " If you want it to use a different bash, set this variable.
+    " let g:fzf_preview_bash = 'C:\Git\bin\bash.exe'
+    nnoremap <silent> <Leader>f :Rg<CR>
+    nnoremap <silent> <Leader>b :Buffers<CR>
+    nnoremap <silent> <C-f> :Files<CR>
+    nnoremap <silent> <Leader>f :Rg<CR>
+    nnoremap <silent> <Leader>/ :BLines<CR>
+    nnoremap <silent> <Leader>' :Marks<CR>
+    nnoremap <silent> <Leader>g :Commits<CR>
+    nnoremap <silent> <Leader>H :Helptags<CR>
+    nnoremap <silent> <Leader>hh :History<CR>
+    nnoremap <silent> <Leader>h: :History:<CR>
+    nnoremap <silent> <Leader>h/ :History/<CR>
+
+    set grepprg=rg\ --vimgrep\ --smart-case\ --follow
